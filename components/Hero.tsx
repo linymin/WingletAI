@@ -12,7 +12,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
       <div className="max-w-4xl animate-in slide-in-from-bottom-5 duration-700 fade-in">
         <h1 className="text-5xl sm:text-7xl font-extrabold mb-8 tracking-tight leading-tight">
           <span className="block text-gray-800 mb-2">以AI为介</span>
-          <span className="text-accentWarm block">创造真正有价值的应用。</span>
+          <span className="text-accentWarm block">创造真正有价值的应用</span>
         </h1>
         <p className="text-xl sm:text-2xl text-gray-600 mb-10 max-w-2xl leading-relaxed">
            <span className="font-bold text-accentWarm">Winglet AI</span>，致力于解决实际，创造惊喜体验，传递情感温度的AI应用开发团队。
