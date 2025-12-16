@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
           onClick={(e) => handleNavClick(e, '#home')}
           className="text-xl md:text-2xl font-bold text-accentWarm tracking-wider flex items-center gap-2 cursor-pointer"
         >
-           Winglet AI <span className="text-gray-500 text-xs md:text-sm font-normal">应用定制</span>
+           Winglet AI <span className="text-gray-500 text-xs md:text-sm font-normal">前瞻型 AI 应用全案定制</span>
         </a>
 
         {/* Desktop Nav */}
