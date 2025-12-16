@@ -1,13 +1,15 @@
+
 import React from 'react';
 
 export interface PortfolioItem {
   id: string;
   title: string;
-  category: 'creation' | 'professional' | 'enterprise' | 'charity';
+  category: 'personal' | 'business' | 'humanity';
   icon: React.ReactNode;
   problem: string;
   solution: string;
   result: string;
+  images: string[];
 }
 
 export interface ProcessStep {

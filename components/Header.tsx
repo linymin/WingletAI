@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Button from './ui/Button';
@@ -18,6 +19,16 @@ const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; }
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: '首页', href: '#home' },
     { name: '真实案例', href: '#portfolio' },
@@ -29,9 +40,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      // Close mobile menu first
       setMobileMenuOpen(false);
-      // Smooth scroll to element
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -39,17 +48,18 @@ const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
   return (
     <header 
       className={`fixed top-0 w-full z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-cream/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+        isScrolled || mobileMenuOpen ? 'bg-cream/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-4 md:py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+      {/* Navbar Content - Ensure z-50 to stay above the overlay */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative z-50">
         {/* Logo */}
         <a 
           href="#home" 
           onClick={(e) => handleNavClick(e, '#home')}
-          className="text-2xl font-bold text-accentWarm tracking-wider flex items-center gap-2 cursor-pointer"
+          className="text-xl md:text-2xl font-bold text-accentWarm tracking-wider flex items-center gap-2 cursor-pointer"
         >
-           WingletAI <span className="text-gray-500 text-sm font-normal">应用定制</span>
+           Winglet AI <span className="text-gray-500 text-xs md:text-sm font-normal">应用定制</span>
         </a>
 
         {/* Desktop Nav */}
@@ -71,29 +81,32 @@ const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-gray-600 p-2"
+          className="md:hidden text-gray-600 p-2 focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl py-4 px-4 flex flex-col space-y-4">
+        <div className="fixed inset-0 z-40 bg-cream flex flex-col justify-start items-center pt-28 pb-10 px-6 space-y-6 animate-fade-up md:hidden overflow-y-auto h-screen">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
-              className="text-lg text-gray-700 font-medium py-2 border-b border-gray-50 cursor-pointer"
+              className="text-2xl text-gray-800 font-bold tracking-tight cursor-pointer hover:text-accentWarm transition-colors py-2"
               onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.name}
             </a>
           ))}
-          <Button onClick={() => { onOpenContact(); setMobileMenuOpen(false); }} className="w-full">
-            开始咨询
-          </Button>
+          <div className="pt-6 w-full max-w-sm">
+            <Button onClick={() => { onOpenContact(); setMobileMenuOpen(false); }} className="w-full py-4 text-lg shadow-lg">
+              开始咨询
+            </Button>
+          </div>
         </div>
       )}
     </header>

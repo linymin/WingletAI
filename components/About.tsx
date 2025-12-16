@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Layers, Terminal, User } from 'lucide-react';
 import Button from './ui/Button';
@@ -8,12 +9,12 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ onOpenContact }) => {
   return (
-    <section id="about" className="py-20 border-t border-gray-200 scroll-mt-28">
+    <section id="about" className="py-16 md:py-20 border-t border-gray-200 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="md:flex md:gap-16 items-start">
+        <div className="flex flex-col md:flex-row md:gap-16 items-start">
           
-          <div className="md:w-1/2 mb-10 md:mb-0">
-            <h2 className="text-4xl font-bold mb-8 text-gray-800">
+          <div className="w-full md:w-1/2 mb-12 md:mb-0">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-gray-800">
               🙋‍♂️ 关于我们：一个追求温度的<br /><span className="text-accentWarm">独立开发团队</span>
             </h2>
             
@@ -27,7 +28,7 @@ const About: React.FC<AboutProps> = ({ onOpenContact }) => {
             </div>
           </div>
           
-          <div className="md:w-1/2">
+          <div className="w-full md:w-1/2">
             <h3 className="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">
               我们的工作方式
             </h3>
@@ -64,7 +65,7 @@ const About: React.FC<AboutProps> = ({ onOpenContact }) => {
         </div>
 
         {/* Centered Call to Action moved out of the flex columns */}
-        <div className="mt-16 pt-10 border-t border-gray-100 text-center flex flex-col items-center">
+        <div className="mt-12 md:mt-16 pt-10 border-t border-gray-100 text-center flex flex-col items-center">
           <h4 className="text-lg font-semibold text-gray-800 mb-2">想进一步了解？</h4>
           <Button variant="link" onClick={onOpenContact} className="text-xl">
               链接：我们的名片 &rarr;

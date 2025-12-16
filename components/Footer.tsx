@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface FooterProps {
@@ -12,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
           onClick={onOpenContact}
           className="text-xl font-bold text-gray-800 mb-4 tracking-wider hover:text-accentWarm transition-colors focus:outline-none"
         >
-          WingletAI
+          Winglet AI
         </button>
         
         <p className="text-gray-500 mb-6 max-w-md mx-auto">
