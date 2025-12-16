@@ -118,7 +118,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     images: [
       "https://pic1.imgdb.cn/item/693f7409a0af10c7d92b2c3b.png",
       "https://pic1.imgdb.cn/item/693f7409a0af10c7d92b2c3d.png",
-      "https://pic1.imgdb.cn/item/693f7403a0af10c7d92b2c3a.png"
+      "https://pic1.imgdb.cn/item/693f7409a0af10c7d92b2c3c.png"
     ]
   },
   {
@@ -132,7 +132,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     images: [
       "https://pic1.imgdb.cn/item/693f7413a0af10c7d92b2c45.png",
       "https://pic1.imgdb.cn/item/693f7412a0af10c7d92b2c41.png",
-      "https://pic1.imgdb.cn/item/693f7412a0af10c7d92b2c41.png"
+      "https://pic1.imgdb.cn/item/693f7412a0af10c7d92b2c40.png"
     ]
   },
   {
