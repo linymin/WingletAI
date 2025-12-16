@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenContact }) => {
             </a>
           ))}
           <Button onClick={onOpenContact} className="px-5 py-2 text-sm">
-            开始咨询
+            我要定制
           </Button>
         </nav>
 
